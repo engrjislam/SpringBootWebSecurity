@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping("/user")
-@PreAuthorize("hasAuthority('USER')")
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class UserController {
 
     private final String BASE_PATH = "/user";
     private final String USER_INDEX_PAGE = BASE_PATH + "/index";
 
     @RequestMapping("")
-    public String home() {
+    public String index() {
         return USER_INDEX_PAGE;
     }
 

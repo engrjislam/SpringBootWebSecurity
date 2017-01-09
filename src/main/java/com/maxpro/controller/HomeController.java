@@ -12,7 +12,7 @@ public class HomeController {
     private final String HOME_INDEX_PAGE = BASE_PATH + "index";
 
     @RequestMapping("")
-    public String home() {
+    public String index() {
         return HOME_INDEX_PAGE;
     }
 

@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class AdminController {
 
     private final String BASE_PATH = "/admin";
-    private final String ADMIN_INDES_PAGE = BASE_PATH + "/index";
+    private final String ADMIN_INDEX_PAGE = BASE_PATH + "/index";
 
     @RequestMapping("")
-    public String home() {
-        return ADMIN_INDES_PAGE;
+    public String index() {
+        return ADMIN_INDEX_PAGE;
     }
 
 }
