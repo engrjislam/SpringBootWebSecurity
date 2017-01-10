@@ -2,7 +2,7 @@
 
 What you need to do?
 
-1. You just need run a query named 'combined.sql'.
+1. You just need run a query named src > main > resources > docx > database > sql > combined > (ddl.sql & dml.sql).
 
 2. change database username & password in application.properties file.
 
