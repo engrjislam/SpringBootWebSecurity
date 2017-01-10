@@ -18,6 +18,8 @@ This project try to implement spring security with better approache(s). If you g
 
 2. Will work on session management.
 
+3. Fragment view page(s).
+
 ### Useful links:
 
 1. http://www.ekiras.com/2016/04/authenticate-user-with-custom-user-details-service-in-spring-security.html
