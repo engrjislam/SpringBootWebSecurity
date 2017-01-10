@@ -5,11 +5,11 @@ This project try to implement spring security with better approaches. If got som
 
 ### What you need to do?
 
-1. You just need run a query named src > main > resources > docx > database > sql > combined > (ddl.sql & dml.sql).
+1. You just need to run a query named src > main > resources > docx > database > sql > combined > (ddl.sql & dml.sql).
 
-2. change database username & password in application.properties file.
+2. change database username & password in src > main > resources > application.properties .
 
-3. run the project -> gradle bootRun
+3. run the project from your cmd/terminal -> gradle bootRun
 
 
 
