@@ -13,8 +13,9 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
 
-jar {
+war {
 	baseName = 'SpringBootWebSecurity'
 	version = '0.0.1-SNAPSHOT'
 }
@@ -24,7 +25,6 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
