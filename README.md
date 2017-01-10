@@ -1,6 +1,6 @@
 # SpringBootWebSecurity
 
-This project try to implement spring security with better approaches. If got something wrong, feel free to share your ideas. Leave your suggestion to this simple project.
+This project try to implement spring security with better approache(s). If you got something wrong, feel free to share your idea(s). Please leave your suggestion(s) to this simple project.
 
 
 ### What you need to do?
@@ -12,6 +12,11 @@ This project try to implement spring security with better approaches. If got som
 3. run the project from your cmd/terminal -> gradle bootRun
 
 
+### Future work:
+
+1. I Will try to hide database credentials from src > main > resources > application.properties [if you have any idea, let me know!].
+
+2. Will work on session management.
 
 ### Useful links:
 
