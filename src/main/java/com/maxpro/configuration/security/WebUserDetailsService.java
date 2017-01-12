@@ -1,4 +1,4 @@
-package com.maxpro.configuration.security.service;
+package com.maxpro.configuration.security;
 
 import com.maxpro.entity.Role;
 import com.maxpro.entity.User;

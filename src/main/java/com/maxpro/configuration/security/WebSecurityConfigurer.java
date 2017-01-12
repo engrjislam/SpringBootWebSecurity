@@ -1,7 +1,6 @@
 package com.maxpro.configuration.security;
 
 import com.maxpro.repository.UserRepository;
-import com.maxpro.configuration.security.service.WebUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
