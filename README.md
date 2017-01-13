@@ -11,6 +11,8 @@ This project try to implement spring security with better approache(s). If you g
 
 3. Run the project from your cmd/terminal (supersecretz will fetch by java > com > maxpro > configuration > database > DatabaseConfiguration.java through example..jasypt.key value) -> gradle -Dexample..jasypt.key=supersecretz bootRun .
 
+###### The combined > dml.sql contains two user as johir1 (with user role) & johir2 (with both user & admin role). Both user uses same password i.e 12345
+
 
 ### Future work:
 
@@ -31,4 +33,4 @@ This project try to implement spring security with better approache(s). If you g
 5. http://stackoverflow.com/questions/23367507/how-to-pass-system-property-to-gradle-task
 
 
-###### Happy coding ... :) :) :) 
+###### Happy coding ... :) :) :)
