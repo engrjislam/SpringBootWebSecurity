@@ -7,16 +7,58 @@ This project try to implement spring security with better approache(s). If you g
 
 1. You just need to run a query named src > main > resources > docx > database > sql > combined > (ddl.sql & dml.sql).
 
-2. Change database username & jasypt encrypted password in src > main > resources > application.properties [This application fetch database credeentials provided in application.properties by java > com > maxpro > configuration > database > DatabaseConfiguration.java class. At first add compile('org.jasypt:jasypt-spring3:1.9.1') to build.gradle file. Download Jasypt from https://sourceforge.net/projects/jasypt/files/ and add to your PATH variable. Read http://www.jasypt.org/cli.html and encrypt your database password and then put encrypted password to your application.properties file to the line spring.datasource.password=ENC(SMUg5WCOm2Lw1RR2pk2xFHSXKtg4mElq) and replace SMUg5WCOm2Lw1RR2pk2xFHSXKtg4mElq by encrypted password. According the Jasypt documentation you need two parameters to encrypt a password. First is input (denotes database password) & second is password (the secret key by which you can encrypt your password, this will be used decrypt the jasypt encrypted password). If your database password is x12345 and your encryption key is supersecretz then encrypt it by command line as > encrypt input="x12345" password=supersecretz . You just need to access supersetretz from JVM argument You can fetch.You need two more things. Add bootRun { systemProperties System.properties } to build.gradle and the project by following command].
+2. Change database username & jasypt encrypted password in src > main > resources > application.properties 
 
-3. Run the project from your cmd/terminal (supersecretz will fetch by java > com > maxpro > configuration > database > DatabaseConfiguration.java through example..jasypt.key value) -> gradle -Dexample..jasypt.key=supersecretz bootRun .
+# Encrypt database password
+
+/**
+ * 1. Download jasypt batch file to encrypt database password from https://sourceforge.net/projects/jasypt/files/ 
+ *
+ * 2. Add the bin directory of jasypt to your system path variable
+ *
+ * 3. Add jasypt dependency to 'build.gradle'
+ *  compile('org.jasypt:jasypt-spring3:1.9.1')
+ *
+ * 4. Encrypt password with jasypt CLI
+ *  encrypt input=xXx123 password=authKey
+ *
+ * Here,
+ * 'xXx123'                    >  original database password
+ * 'authKey'                   >  the salt that used to encrypt 'xXx123' (original password)
+ * 'GxxPkJOSRMeqo9uPTPODvw=='  >  encrypted password
+ * 'authKey' is required at runtime to decrypt 'GxxPkJOSRMeqo9uPTPODvw==' (encrypted password)
+ *
+ * You can off course decrypt 'GxxPkJOSRMeqo9uPTPODvw=='
+ * decrypt input=GxxPkJOSRMeqo9uPTPODvw== password=authKey
+ *
+ * 5. Put the encrypted password (let's say 'GxxPkJOSRMeqo9uPTPODvw==') at application.properties
+ *  spring.datasource.password=ENC(GxxPkJOSRMeqo9uPTPODvw==)
+ *
+ * 'authKey' will be accessed by the following command
+ * gradle will pass the value of 'auth.key' to java
+ * -D [with no space(s)] prior to 'auth.key' that is -Dauth.key with '=' that is
+ * -Dauth.key=authKey
+ *
+ * java will get this value by 'System.getProperty("auth.key")'
+ *
+ * 6. Enable System properties class & add the following code to 'build.gradle'
+ *   bootRun {
+ *       systemProperties System.properties
+ *   }
+ *
+ * 7. Run the project with
+ *   gradle -Dauth.key=authKey bootRun
+ *
+**/
+
+3. Run the project from your cmd/terminal -> gradle -Dauth.key=authKey bootRun
 
 ###### The combined > dml.sql contains two user as johir1 (with user role) & johir2 (with both user & admin role). Both user uses same password i.e 12345
 
 
 ### Future work:
 
-1. Will work on session management.
+1. Will work on session management to detect logged in user.
 
 2. Fragment view page(s).
 
