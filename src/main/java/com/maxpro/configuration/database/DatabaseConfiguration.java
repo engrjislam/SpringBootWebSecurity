@@ -25,8 +25,6 @@ public class DatabaseConfiguration {
     @Value("${spring.datasource.username}")
     private String databaseUsername;
 
-    private String databasePassword;
-
     @Bean
     public DataSource datasource() throws IOException {
         org.apache.tomcat.jdbc.pool.DataSource ds = new org.apache.tomcat.jdbc.pool.DataSource();
@@ -40,7 +38,7 @@ public class DatabaseConfiguration {
 
     private String getSecurePassword() throws IOException {
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
-        encryptor.setPassword(System.getProperty("example.jasypt.key"));
+        encryptor.setPassword(System.getProperty("auth.key"));
         Properties props = new EncryptableProperties(encryptor);
         props.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
         return props.getProperty("spring.datasource.password");
