@@ -34,7 +34,7 @@ This project try to implement spring security with better approache(s). If you g
   
   >  'GxxPkJOSRMeqo9uPTPODvw=='  >  encrypted password
   
-  >  'authKey' is required at runtime to decrypt 'GxxPkJOSRMeqo9uPTPODvw==' (encrypted password)
+  >  'authKey' is required at compile time to decrypt 'GxxPkJOSRMeqo9uPTPODvw==' (encrypted password)
  
   >  You can off course decrypt 'GxxPkJOSRMeqo9uPTPODvw=='
   
