@@ -3,7 +3,6 @@ package com.maxpro.configuration.security;
 import com.maxpro.entity.Role;
 import com.maxpro.entity.User;
 import com.maxpro.repository.UserRepository;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,8 +18,6 @@ import java.util.Set;
 @Transactional
 public class WebUserDetailsService implements UserDetailsService {
 
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(WebUserDetailsService.class);
-
     @Autowired
     private UserRepository userRepository;
 
@@ -33,10 +30,8 @@ public class WebUserDetailsService implements UserDetailsService {
         try {
             User user = userRepository.findByUserName(username);
             if (user == null) {
-                LOGGER.debug("user not found with the provided username");
                 return null;
             }
-            LOGGER.debug(" user from username " + user.toString());
             return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), getAuthorities(user));
         } catch (Exception e) {
             throw new UsernameNotFoundException("User not found");
@@ -49,7 +44,6 @@ public class WebUserDetailsService implements UserDetailsService {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getName());
             authorities.add(grantedAuthority);
         }
-        LOGGER.debug("user authorities are " + authorities.toString());
         return authorities;
     }
 

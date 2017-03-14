@@ -12,8 +12,20 @@ public class Role {
     private long id;
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
-    private Set<User> users;
+    /*
+     following line is responsible for infinite loop
+     because Role call User, and User call Role
+     Role-User-Role and forms an infinite loop
+     that's why we comment out the following line
+     used for users :
+        - users
+        - getUsers()
+        - setUsers(Set<User> users); and
+        - toString()
+    */
+
+    /*@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
+    private Set<User> users;*/
 
     public long getId() {
         return id;
@@ -31,27 +43,19 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
+    /*public Set<User> getUsers() {
         return users;
     }
 
     public void setUsers(Set<User> users) {
         this.users = users;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-
-                /*
-                 following line is responsible for infinite loop
-                 because Role call User, and User call Role
-                 Role-User-Role and forms an infinite loop
-                 that's why we comment out the following line
-                */
-
                 //", users=" + users +
                 '}';
     }
