@@ -77,9 +77,7 @@ This project try to implement spring security with better approache(s). If you g
 
 ### Future work:
 
-1. Will work on session management to detect logged in user.
-
-2. Fragment view page(s).
+In future I will work with fragment view page(s).
 
 ### References:
 
