@@ -36,8 +36,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `user_role`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `FK_user_role` (`role_id`);
+  ADD PRIMARY KEY (`user_id`,`role_id`);
 
 ALTER TABLE `user_role`
   ADD CONSTRAINT `FK_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
