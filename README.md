@@ -23,27 +23,27 @@ This project try to implement spring security with better approache(s). If you g
  
   > 4. Encrypt password with jasypt CLI
   
-  >  encrypt input=xXx123 password=authKey
+  >  encrypt input=root password=authKey
  
  
   >  Here,
   
-  >  'xXx123'                    >  original database password
+  >  'root'                    >  original database password
   
-  >  'authKey'                   >  the salt that used to encrypt 'xXx123' (original password)
+  >  'authKey'                   >  the salt that used to encrypt 'root' (original password)
   
-  >  'GxxPkJOSRMeqo9uPTPODvw=='  >  encrypted password
+  >  'fwPDBYsbkbHVwxDGEsutsQ=='  >  encrypted password
   
-  >  'authKey' is required at compile time to decrypt 'GxxPkJOSRMeqo9uPTPODvw==' (encrypted password)
+  >  'authKey' is required at compile time to decrypt 'fwPDBYsbkbHVwxDGEsutsQ==' (encrypted password)
  
-  >  You can off course decrypt 'GxxPkJOSRMeqo9uPTPODvw=='
+  >  You can of course decrypt 'fwPDBYsbkbHVwxDGEsutsQ=='
   
-  >  decrypt input=GxxPkJOSRMeqo9uPTPODvw== password=authKey
+  >  decrypt input=fwPDBYsbkbHVwxDGEsutsQ== password=authKey
  
  
-  > 5. Put the encrypted password (let's say 'GxxPkJOSRMeqo9uPTPODvw==') at application.properties
+  > 5. Put the encrypted password (let's say 'fwPDBYsbkbHVwxDGEsutsQ==') at application.properties
   
-  >  spring.datasource.password=ENC(GxxPkJOSRMeqo9uPTPODvw==)
+  >  spring.datasource.password=ENC(fwPDBYsbkbHVwxDGEsutsQ==)
  
  
   >  'authKey' will be accessed by the following command
