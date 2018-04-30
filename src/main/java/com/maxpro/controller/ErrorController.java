@@ -14,5 +14,5 @@ public class ErrorController {
     public String accessDenied() {
         return ACCESS_DENIED_PAGE;
     }
-
+    
 }

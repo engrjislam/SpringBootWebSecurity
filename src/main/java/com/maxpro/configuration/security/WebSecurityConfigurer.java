@@ -40,25 +40,34 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/css/**", "/img/**", "/js/**").permitAll()
-                    .antMatchers("/", "/home").permitAll()
-                    .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
-                    .antMatchers("/user/**").hasAuthority("ROLE_USER")
+                    .antMatchers("/css/**", "/img/**", "/js/**")
+                        .permitAll()
+                    .antMatchers("/", "/home")
+                        .permitAll()
+                    .antMatchers("/admin/**")
+                        .hasAuthority("ROLE_ADMIN")
+                    .antMatchers("/user/**")
+                        .hasAuthority("ROLE_USER")
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
                         .loginPage("/login")
-                            .usernameParameter("username").passwordParameter("password").permitAll()
+                            .usernameParameter("username")
+                            .passwordParameter("password")
+                                .permitAll()
+                        .failureUrl("/login?error")
                 .and()
                     .logout()
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                         .logoutSuccessUrl("/")
                 .and()
-                    .exceptionHandling().accessDeniedPage("/access-denied")
+                    .exceptionHandling()
+                        .accessDeniedPage("/access-denied")
                 .and()
                     .sessionManagement()
                 .and()
-                    .csrf().disable();
+                    .csrf()
+                        .disable();
     }
 
 }
