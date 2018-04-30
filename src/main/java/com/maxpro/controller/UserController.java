@@ -5,6 +5,7 @@ import com.maxpro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,7 +24,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("metaTitle", "User");
         return USER_INDEX_PAGE;
     }
 
