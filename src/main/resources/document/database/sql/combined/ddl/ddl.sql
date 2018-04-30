@@ -3,8 +3,8 @@ CREATE DATABASE spring_boot_security
   CHARACTER SET utf8
   COLLATE utf8_unicode_ci;
 
--- use database > javalabs
-USE javalabs;
+-- use database > spring_boot_security
+USE spring_boot_security;
 
 -- table > role
 CREATE TABLE `role` (
