@@ -1,4 +1,4 @@
-package com.maxpro.controller;
+package com.maxpro.controller.user;
 
 import com.maxpro.entity.User;
 import com.maxpro.service.UserService;
