@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  admin.css -->
     <link th:href="@{/css/admin/admin.css}" rel="stylesheet"/>
-
+    <!-- /admin.css -->
 </head>
 
 <body>
@@ -20,9 +21,6 @@
     <div class="alert alert-danger" th:if="${param.error}">
         <strong>Invalid username or password or both.</strong>
     </div>
-    <!--<div class="alert alert-success" th:if="${param.logout}">
-        <strong>You have been logged out.</strong>
-    </div>-->
 
     <form class="form-signin" th:action="@{/login}" method="post">
         <h2 class="form-signin-heading text-center">sign in</h2>
@@ -33,6 +31,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 
-</div> <!-- /container -->
+</div>
 </body>
 </html>

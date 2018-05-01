@@ -1,4 +1,4 @@
-package com.maxpro.controller.common;
+package com.maxpro.controller.web.common;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class ErrorCommonController implements ErrorController {
+public class ErrorCommonWebController implements ErrorController {
 
     private final String BASE_PATH = "/common/error";
     private final String ACCESS_DENIED_PAGE = BASE_PATH + "/access_denied";
