@@ -1,4 +1,4 @@
-package com.maxpro.entity.custom;
+package com.maxpro.model.custom;
 
 
 public class CustomError {

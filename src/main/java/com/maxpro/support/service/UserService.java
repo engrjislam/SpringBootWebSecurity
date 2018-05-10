@@ -1,7 +1,7 @@
-package com.maxpro.service;
+package com.maxpro.support.service;
 
-import com.maxpro.entity.User;
-import com.maxpro.repository.UserRepository;
+import com.maxpro.model.User;
+import com.maxpro.support.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
