@@ -1,4 +1,4 @@
-package com.maxpro.support.constant;
+package com.maxpro.support.model;
 
 public enum MessageType {
 

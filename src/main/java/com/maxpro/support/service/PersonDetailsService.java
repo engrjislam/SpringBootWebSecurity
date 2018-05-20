@@ -1,4 +1,4 @@
-package com.maxpro.support.transactional;
+package com.maxpro.support.service;
 
 import com.maxpro.model.Role;
 import com.maxpro.model.User;

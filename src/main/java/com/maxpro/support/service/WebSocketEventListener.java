@@ -1,7 +1,7 @@
-package com.maxpro.support.component;
+package com.maxpro.support.service;
 
 import com.maxpro.model.ChatMessage;
-import com.maxpro.support.constant.MessageType;
+import com.maxpro.support.model.MessageType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.maxpro.support.configuration;
+package com.maxpro.support.config;
 
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.properties.EncryptableProperties;

@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-
 public class ChatController {
 
     private final String BASE_PATH = "/common/chat";
     private final String CHAT_INDEX_PAGE = BASE_PATH + "/index";
-    private final String CHAT_BOX_PAGE = BASE_PATH + "/chat";
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
@@ -34,11 +32,6 @@ public class ChatController {
     @RequestMapping("/chat")
     public String chatIndex() {
         return CHAT_INDEX_PAGE;
-    }
-
-    @RequestMapping("/chat2")
-    public String chatBox() {
-        return CHAT_BOX_PAGE;
     }
 
 }

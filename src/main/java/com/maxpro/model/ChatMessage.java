@@ -1,6 +1,6 @@
 package com.maxpro.model;
 
-import com.maxpro.support.constant.MessageType;
+import com.maxpro.support.model.MessageType;
 
 public class ChatMessage {
 

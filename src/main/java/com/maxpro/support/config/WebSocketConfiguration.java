@@ -1,4 +1,4 @@
-package com.maxpro.support.configuration;
+package com.maxpro.support.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.converter.MessageConverter;

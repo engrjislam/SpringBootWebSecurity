@@ -1,7 +1,7 @@
-package com.maxpro.support.configuration;
+package com.maxpro.support.config;
 
 import com.maxpro.support.repository.UserRepository;
-import com.maxpro.support.transactional.PersonDetailsService;
+import com.maxpro.support.service.PersonDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
