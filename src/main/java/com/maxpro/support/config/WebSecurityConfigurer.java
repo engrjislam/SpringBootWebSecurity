@@ -1,5 +1,7 @@
 package com.maxpro.support.config;
 
+import com.maxpro.support.model.FacebookSignInAdapter;
+import com.maxpro.support.repository.FacebookConnectionSignUp;
 import com.maxpro.support.repository.UserRepository;
 import com.maxpro.support.service.PersonDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
+import org.springframework.social.connect.web.ProviderSignInController;
 
 
 @Configuration
@@ -21,6 +27,15 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ConnectionFactoryLocator connectionFactoryLocator;
+
+    @Autowired
+    private UsersConnectionRepository usersConnectionRepository;
+
+    @Autowired
+    private FacebookConnectionSignUp facebookConnectionSignUp;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -69,6 +84,17 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .and()
                     .csrf()
                         .disable();
+    }
+
+    @Bean
+    public ProviderSignInController providerSignInController() {
+        ((InMemoryUsersConnectionRepository) usersConnectionRepository)
+                .setConnectionSignUp(facebookConnectionSignUp);
+
+        return new ProviderSignInController(
+                connectionFactoryLocator,
+                usersConnectionRepository,
+                new FacebookSignInAdapter());
     }
 
 }
