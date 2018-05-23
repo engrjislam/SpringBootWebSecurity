@@ -1,5 +1,0 @@
-problem:
-Spring Boot Remove Whitelabel Error Page
-
-solution:
-https://stackoverflow.com/questions/25356781/spring-boot-remove-whitelabel-error-page

@@ -1,5 +1,0 @@
-problem:
-Spring thymeleaf header and footer dynamic includes
-
-solution:
-https://stackoverflow.com/questions/36663038/spring-thymeleaf-header-and-footer-dynamic-includes/47868058#47868058
