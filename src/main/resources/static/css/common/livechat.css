@@ -171,6 +171,11 @@ p { margin: 0; }
 	margin-left: 56px;
 }
 
+.chat-message-content p{
+	word-wrap: break-word;
+	line-height: 1;
+}
+
 .chat-time {
 	float: right;
 	font-size: 10px;
