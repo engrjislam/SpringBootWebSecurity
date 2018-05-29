@@ -3,6 +3,7 @@
     <head th:replace="common/fragments/header :: head"></head>
     <body>
         <div class="container">
+            <div th:replace="common/fragments/navbar :: navbar"></div>
             <div layout:fragment="content"></div>
             <div th:replace="common/fragments/footer :: footer"></div>
         </div>
