@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <head>
         <meta charset="UTF-8"/>
     </head>
     <body>
         <div th:fragment="navbar">
+            <style>
+                .cart {
+                    font-size:34px;
+                }
+            </style>
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
                 <!-- Brand/logo -->
                 <a class="navbar-brand" href="#"><img th:src="@{/img/common/bird.jpg}" alt="logo" style="width:40px;"/></a>
-                <!-- Links -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Link 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
-                </ul>
-                <form class="form-inline" action="/search">
+                <form class="form-inline mr-auto input-group" action="/search">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
-                    <button class="btn btn-success" type="submit">Search</button>
                 </form>
+                <div sec:authorize="isAuthenticated()">
+                <a class="btn btn-success text-white mr-sm-2" th:href="@{/logout}">Logout</a>
+                </div>
+                <div sec:authorize="!isAuthenticated()">
+                <a class="btn btn-success text-white mr-sm-2" th:href="@{/login}">Login</a>
+                </div>
+                <a class="cart text-white" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
             </nav>
+            <!-- Links -->
+            <style>
+                .nav-pills, .nav-link {
+                    border-radius: 0px !important;
+                }
+            </style>
+            <ul class="nav nav-pills nav-justified">
+                <li class="nav-item"><a class="nav-link active" href="#">Link 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
+            </ul>
         </div>
     </body>
 </html>

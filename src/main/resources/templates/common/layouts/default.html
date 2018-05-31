@@ -4,6 +4,7 @@
     <body>
         <div class="container">
             <div th:replace="common/fragments/navbar :: navbar"></div>
+            <div th:replace="common/fragments/breadcrumb :: breadcrumb"></div>
             <div layout:fragment="content"></div>
             <div th:replace="common/fragments/footer :: footer"></div>
         </div>

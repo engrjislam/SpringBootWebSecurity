@@ -1,40 +1,86 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head>
     <title>Login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--  admin.css -->
-    <link th:href="@{/css/admin/admin.css}" rel="stylesheet"/>
-    <!-- /admin.css -->
 </head>
 
 <body>
 <div class="container">
+    <link th:href="@{/css/admin/admin.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/common/login.css}"/>
 
-    <div class="alert alert-danger" th:if="${param.error}">
-        <strong>Invalid username or password or both.</strong>
+    <div class="container">
+            <div class="row">
+                <h2 style="text-align:center">Login with Social Media or Manually</h2>
+                <div class="vl">
+                    <span class="vl-innertext">or</span>
+                </div>
+
+                <div class="col">
+                    <!--<a href="#" class="fb btn">
+                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                    </a>-->
+                    <form action="/signin/facebook" method="POST">
+                        <input type="hidden" name="scope" value="public_profile" />
+                        <button class="fb btn" type="submit">
+                            <i class="fa fa-facebook fa-fw"></i>
+                            Login with Facebook
+                        </button>
+                    </form>
+                    <a href="#" class="twitter btn">
+                        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                    </a>
+                    <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                    </i> Login with Google+
+                    </a>
+                </div>
+
+                <div class="col">
+                    <div class="hide-md-lg">
+                        <p>Or sign in manually:</p>
+                    </div>
+
+                    <div class="alert alert-danger" th:if="${param.error}">
+                        <strong>Invalid username or password or both.</strong>
+                    </div>
+
+                    <form th:action="@{/login}" th:method="POST">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" id="inputName" name="username" class="form-control" placeholder="Username"
+                               required="required" autofocus="autofocus"/>
+                    </div>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                               required="required"/>
+                    </div>
+                    <input type="submit" value="Login" class="btn-submit"/>
+                    </form>
+                </div>
+
+            </div>
     </div>
 
-    <form class="form-signin" th:action="@{/login}" method="post">
-        <h2 class="form-signin-heading text-center">sign in</h2>
-        <input type="text" id="inputName" name="username" class="form-control" placeholder="Username"
-               required="required" autofocus="autofocus"/>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
-               required="required"/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-
-    <!--<form action="/signin/facebook" method="POST">
-        <input type="hidden" name="scope" value="public_profile" />
-        <input type="submit" value="Login using Facebook"/>
-    </form>-->
+    <div class="bottom-container">
+        <div class="row">
+            <div class="col">
+                <a href="#" style="color:white" class="btn">Sign up</a>
+            </div>
+            <div class="col">
+                <a href="#" style="color:white" class="btn">Forgot password?</a>
+            </div>
+        </div>
+    </div>
 
 </div>
 </body>

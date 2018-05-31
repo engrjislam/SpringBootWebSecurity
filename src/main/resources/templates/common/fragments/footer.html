@@ -5,13 +5,35 @@
 </head>
 <body>
     <div th:fragment="footer">
-        &copy; 2016 The Blue Code
+        <style>
+            .footer {
+                text-align: center;
+                padding: .75rem 1rem;
+                background-color: #e9ecef;
+            }
+            .nav-pills, .nav-link {
+                border-radius: 0px !important;
+            }
+        </style>
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="tooltip" title="Frequently Asked Question">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+        <div class="footer">
+            &copy; 2016 The Blue Code
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
     </div>
-<div th:fragment="my_footer">
-    &copy; 2018 My Footer
-</div>
+    <div th:fragment="my_footer">
+        &copy; 2018 My Footer
+    </div>
 </body>
 </html>

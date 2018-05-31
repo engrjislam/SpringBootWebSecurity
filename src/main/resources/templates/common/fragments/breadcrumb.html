@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div th:fragment="breadcrumb">
+    <style>
+        .breadcrumb {
+            border-radius: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        li.breadcrumb-item::before {
+            display: inline-block;
+            padding-right: .5rem;
+            color: #6c757d;
+            content: ">" !important;
+        }
+        li.breadcrumb-item0 {
+            padding-right: .5rem;
+        }
+    </style>
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item0"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Photos</a></li>
+        <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+        <li class="breadcrumb-item"><a href="#">Italy</a></li>
+        <li class="breadcrumb-item active">Rome</li>
+    </ul>
+</div>
+</body>
+</html>
