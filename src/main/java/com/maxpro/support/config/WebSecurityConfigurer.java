@@ -1,7 +1,7 @@
 package com.maxpro.support.config;
 
 import com.maxpro.support.adapter.FacebookSignInAdapter;
-import com.maxpro.support.repository.FacebookConnectionSignUp;
+import com.maxpro.support.service.FacebookSignUp;
 import com.maxpro.support.repository.UserRepository;
 import com.maxpro.support.service.PersonDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     private UsersConnectionRepository usersConnectionRepository;
 
     @Autowired
-    private FacebookConnectionSignUp facebookConnectionSignUp;
+    private FacebookSignUp facebookSignUp;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -89,7 +89,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Bean
     public ProviderSignInController providerSignInController() {
         ((InMemoryUsersConnectionRepository) usersConnectionRepository)
-                .setConnectionSignUp(facebookConnectionSignUp);
+                .setConnectionSignUp(facebookSignUp);
 
         return new ProviderSignInController(
                 connectionFactoryLocator,

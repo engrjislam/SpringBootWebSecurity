@@ -1,6 +1,7 @@
-package com.maxpro.support.repository;
+package com.maxpro.support.service;
 
 import com.maxpro.model.User;
+import com.maxpro.support.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 
 @Service
-public class FacebookConnectionSignUp implements ConnectionSignUp{
+public class FacebookSignUp implements ConnectionSignUp{
 
     @Autowired
     private UserRepository userRepository;
