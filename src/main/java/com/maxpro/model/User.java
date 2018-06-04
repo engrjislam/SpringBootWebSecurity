@@ -3,6 +3,7 @@ package com.maxpro.model;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 public class User {
 
