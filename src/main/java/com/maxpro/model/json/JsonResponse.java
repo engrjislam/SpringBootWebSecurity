@@ -1,15 +1,15 @@
-package com.maxpro.model.custom;
+package com.maxpro.model.json;
 
 
-public class CustomError {
+public class JsonResponse {
 
     private int code;
     private String status;
 
-    public CustomError() {
+    public JsonResponse() {
     }
 
-    public CustomError(int code, String status) {
+    public JsonResponse(int code, String status) {
         this.code = code;
         this.status = status;
     }
@@ -32,7 +32,7 @@ public class CustomError {
 
     @Override
     public String toString() {
-        return "CustomError{" +
+        return "JsonResponse{" +
                 "code=" + code +
                 ", status='" + status + '\'' +
                 '}';

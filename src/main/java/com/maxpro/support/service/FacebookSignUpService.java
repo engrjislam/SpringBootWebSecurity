@@ -11,7 +11,7 @@ import java.util.UUID;
 
 
 @Service
-public class FacebookSignUp implements ConnectionSignUp{
+public class FacebookSignUpService implements ConnectionSignUp{
 
     @Autowired
     private UserRepository userRepository;

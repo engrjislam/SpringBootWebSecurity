@@ -1,14 +1,14 @@
-package com.maxpro.model.custom;
+package com.maxpro.model.json;
 
-public class CustomUser {
+public class JsonUser {
 
     private String userName;
     private boolean enabled;
 
-    public CustomUser() {
+    public JsonUser() {
     }
 
-    public CustomUser(String userName, boolean enabled) {
+    public JsonUser(String userName, boolean enabled) {
         this.userName = userName;
         this.enabled = enabled;
     }
@@ -31,7 +31,7 @@ public class CustomUser {
 
     @Override
     public String toString() {
-        return "CustomUser{" +
+        return "JsonUser{" +
                 "userName='" + userName + '\'' +
                 ", enabled=" + enabled +
                 '}';

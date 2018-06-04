@@ -20,8 +20,8 @@ public class ErrorCommonWebController implements ErrorController {
 
     /*@RequestMapping(path = "/error", method = RequestMethod.GET)
     @ResponseBody
-    public CustomError error() {
-        CustomError customError = new CustomError(404, "Page Not Found!");
+    public JsonResponse error() {
+        JsonResponse customError = new JsonResponse(404, "Page Not Found!");
         return customError;
     }*/
 
