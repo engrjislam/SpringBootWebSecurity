@@ -4,29 +4,64 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>FAQ</title>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  font-awesome -->
+    <script src="https://use.fontawesome.com/1ff06e0c50.js"></script>
+    <!-- /font-awesome -->
+    <style>
+        body {
+            padding: 40px 0px;
+            background-color: #eee;
+        }
+        h2 {
+            text-align: center;
+        }
+        a[data-toggle="collapse"] {
+            text-decoration: none;
+        }
+        .right {
+            float: right;
+        }
+        .panel-heading {
+            padding: 18px;
+        }
+        .submitLink {
+            color: #1a8a34;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Collapsible Panel</h2>
-    <p>Click on the collapsible panel to open and close it.</p>
+    <h2>Welcome to TBC's FAQ page</h2>
+    <p>This page contains some important frequently asked question that may come
+        into your mind with we try our best possible answer to satisfy your answer.
+        Don't worry! if you do not find your question please feel free to <strong class="submitLink" id="myBtn">submit
+    your question!</strong> we will answer your question as quick as possible</p>
     <div class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+                    <a data-toggle="collapse" href="#collapse1">Your Question</a>
                 </h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
-                <div class="panel-body">Panel Body</div>
-                <div class="panel-footer">Panel Footer</div>
+                <div class="panel-body">Our Best Answer</div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-success"><i class="fa fa-thumbs-up"></i> <span class="badge">7</span></button>
+                    <button type="button" class="btn btn-warning right"><i class="fa fa-thumbs-down"></i> <span class="badge">7</span></button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<div th:replace="common/fragments/modal :: faqModalForm"></div>
 
 </body>
 </html>
