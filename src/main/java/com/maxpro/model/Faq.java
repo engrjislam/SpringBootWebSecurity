@@ -1,8 +1,8 @@
 package com.maxpro.model;
 
 import com.maxpro.support.model.FaqStatus;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,20 +14,28 @@ public class Faq {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String question;
+    @Lob
+    @Column
     private String answer;
-    @Column(columnDefinition = "bigint default 0")
+    @Column(columnDefinition = "BIGINT default 0")
     private long likeCount;
     // or simply
     // private long likeCount=0;
-    @Column(columnDefinition = "bigint default 0")
+    @Column(columnDefinition = "BIGINT default 0")
     private long dislikeCount;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar(8) default 'PENDING'")
+    @Column(columnDefinition = "VARCHAR(8) default 'PENDING'")
     private FaqStatus status = FaqStatus.PENDING;
-    @CreatedDate
+    @Basic(optional = false)
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
     private Date created;
-    @LastModifiedBy
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(insertable = false)
     private Date updated;
 
     public Faq() {

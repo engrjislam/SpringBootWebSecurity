@@ -1,14 +1,14 @@
 package com.maxpro.controller.web.common;
 
 import com.maxpro.model.Faq;
-import com.maxpro.model.custom.CustomError;
+import com.maxpro.model.json.JsonResponse;
 import com.maxpro.support.repository.FaqRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
@@ -33,12 +33,22 @@ public class FaqCommonController {
 
     @RequestMapping(path = "/faq/add", method = RequestMethod.POST)
     @ResponseBody
-    public CustomError addFaq(WebRequest webRequest) {
+    public JsonResponse addFaq(WebRequest webRequest) {
         String question = webRequest.getParameter("question");
         Faq faq = new Faq(question, null);
         faqRepository.save(faq);
 
-        return new CustomError(200, "Saved Successfully");
+        return new JsonResponse(200, "Saved Successfully");
+    }
+
+    @RequestMapping(path = "/faq/update/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonResponse updateFaq(@PathVariable long id, WebRequest webRequest) {
+        Faq faq = faqRepository.findOne(id);
+        String question = webRequest.getParameter("question");
+        faq.setQuestion(question);
+        faqRepository.save(faq);
+        return new JsonResponse(200, "Successfully updated!");
     }
 
 }
