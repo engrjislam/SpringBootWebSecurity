@@ -17,7 +17,7 @@
                 <!-- Brand/logo -->
                 <a class="navbar-brand" href="#"><img th:src="@{/img/common/bird.jpg}" alt="logo" style="width:40px;"/></a>
                 <form class="form-inline mr-auto input-group" action="/search">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
+                    <input class="form-control mr-sm-2" type="text" placeholder="" id="searchTerm" name="searchTerm" value=""/>
                 </form>
                 <div sec:authorize="isAuthenticated()">
                 <a class="btn btn-success text-white mr-sm-2" th:href="@{/logout}">Logout</a>
@@ -38,6 +38,21 @@
                 <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
             </ul>
+            <script type="text/javascript" th:src="@{/js/common/superplaceholder.min.js}"></script>
+            <script>
+                // animated search placeholder
+                superplaceholder({
+                    el: searchTerm,
+                    sentences: [
+                        'Search by Medicine (ex. Napa, Napa-Extra) ',
+                        'Search by Company (ex. Beximco, Hamdard)'
+                    ],
+                    options: {
+                        loop: true,
+                        startOnFocus: false
+                    }
+                });
+            </script>
         </div>
     </body>
 </html>
