@@ -1,4 +1,4 @@
-package com.maxpro.support.model;
+package com.maxpro.support.adapter;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
