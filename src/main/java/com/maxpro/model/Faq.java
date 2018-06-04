@@ -14,30 +14,38 @@ public class Faq {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String question;
+
     @Lob
     @Column
     private String answer;
+
     @Column(columnDefinition = "BIGINT default 0")
     private long likeCount;
     // or simply
     // private long likeCount=0;
+
     @Column(columnDefinition = "BIGINT default 0")
     private long dislikeCount;
+
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(8) default 'PENDING'")
     private FaqStatus status = FaqStatus.PENDING;
+
     @Basic(optional = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(updatable = false)
     private Date created;
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(insertable = false)
     private Date updated;
 
+    
     public Faq() {
     }
 
