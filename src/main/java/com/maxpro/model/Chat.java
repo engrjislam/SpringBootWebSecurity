@@ -1,22 +1,23 @@
 package com.maxpro.model;
 
-import com.maxpro.support.model.MessageType;
+import com.maxpro.support.model.ChatStatus;
 
-public class ChatMessage {
 
-    private MessageType messageType;
+public class Chat {
+
+    private ChatStatus chatStatus;
     private String content;
     private String sender;
 
-    public ChatMessage() {
+    public Chat() {
     }
 
-    public MessageType getMessageType() {
-        return messageType;
+    public ChatStatus getChatStatus() {
+        return chatStatus;
     }
 
-    public void setMessageType(MessageType messageType) {
-        this.messageType = messageType;
+    public void setChatStatus(ChatStatus chatStatus) {
+        this.chatStatus = chatStatus;
     }
 
     public String getContent() {
@@ -37,8 +38,8 @@ public class ChatMessage {
 
     @Override
     public String toString() {
-        return "ChatMessage{" +
-                "messageType=" + messageType +
+        return "Chat{" +
+                "chatStatus=" + chatStatus +
                 ", content='" + content + '\'' +
                 ", sender='" + sender + '\'' +
                 '}';

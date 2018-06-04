@@ -1,6 +1,6 @@
 package com.maxpro.controller.web.common;
 
-import com.maxpro.model.ChatMessage;
+import com.maxpro.model.Chat;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -17,16 +17,16 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        return chatMessage;
+    public Chat sendMessage(@Payload Chat chat) {
+        return chat;
     }
 
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+    public Chat addUser(@Payload Chat chat, SimpMessageHeaderAccessor headerAccessor) {
         // Add username in web socket session
-        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-        return chatMessage;
+        headerAccessor.getSessionAttributes().put("username", chat.getSender());
+        return chat;
     }
 
     @RequestMapping("/chat")

@@ -58,7 +58,7 @@ function onConnected() {
         sender: username,
         userEmail: email,
         userPhone: phone,
-        messageType: 'JOIN'
+        chatStatus: 'JOIN'
     };
 
     // Tell your username to the server
@@ -81,7 +81,7 @@ function sendMessage(event) {
         var chatMessage = {
             sender: username,
             content: messageContent,
-            messageType: 'CHAT'
+            chatStatus: 'CHAT'
         };
         stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
         messageInput.value = '';
@@ -117,9 +117,9 @@ function onMessageReceived(payload) {
     messageSenderElement.appendChild(usernameText);
     chatMessageContentElement.appendChild(messageSenderElement);
 
-    if(message.messageType === 'JOIN') {
+    if(message.chatStatus === 'JOIN') {
         message.content = message.sender + ' joined!';
-    } else if (message.messageType === 'LEAVE') {
+    } else if (message.chatStatus === 'LEAVE') {
         message.content = message.sender + ' left!';
     }
 

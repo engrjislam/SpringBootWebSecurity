@@ -1,6 +1,6 @@
 package com.maxpro.support.model;
 
-public enum MessageType {
+public enum ChatStatus {
 
     CHAT,
     JOIN,

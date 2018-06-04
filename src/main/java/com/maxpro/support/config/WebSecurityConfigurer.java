@@ -1,6 +1,6 @@
 package com.maxpro.support.config;
 
-import com.maxpro.support.model.FacebookSignInAdapter;
+import com.maxpro.support.adapter.FacebookSignInAdapter;
 import com.maxpro.support.repository.FacebookConnectionSignUp;
 import com.maxpro.support.repository.UserRepository;
 import com.maxpro.support.service.PersonDetailsService;

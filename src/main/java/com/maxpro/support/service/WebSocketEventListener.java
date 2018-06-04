@@ -1,7 +1,7 @@
 package com.maxpro.support.service;
 
-import com.maxpro.model.ChatMessage;
-import com.maxpro.support.model.MessageType;
+import com.maxpro.model.Chat;
+import com.maxpro.support.model.ChatStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +34,11 @@ public class WebSocketEventListener {
         if(username != null) {
             logger.info("User Disconnected : " + username);
 
-            ChatMessage chatMessage = new ChatMessage();
-            chatMessage.setMessageType(MessageType.LEAVE);
-            chatMessage.setSender(username);
+            Chat chat = new Chat();
+            chat.setChatStatus(ChatStatus.LEAVE);
+            chat.setSender(username);
 
-            messagingTemplate.convertAndSend("/topic/public", chatMessage);
+            messagingTemplate.convertAndSend("/topic/public", chat);
         }
     }
 
