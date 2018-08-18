@@ -2,6 +2,7 @@ package com.maxpro.controller.web.common;
 
 import com.maxpro.model.Faq;
 import com.maxpro.model.json.JsonResponse;
+import com.maxpro.support.model.FaqStatus;
 import com.maxpro.support.repository.FaqRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class FaqCommonController {
 
     @RequestMapping(path = "/faqs", method = RequestMethod.GET)
     public String faq(Model model) {
-        List<Faq> faqs = faqRepository.findAll();
+        List<Faq> faqs = faqRepository.findByStatus(FaqStatus.ACTIVE);
         model.addAttribute("faqs", faqs);
         return FAQ_INDEX_PAGE;
     }
